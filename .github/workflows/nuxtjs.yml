@@ -55,8 +55,14 @@ jobs:
             ${{ runner.os }}-nuxt-build-
       - name: Install dependencies
         run: yarn install
+      - name: Check current directory
+        run: pwd
+      - name: List files before generate
+        run: ls -la
       - name: Static HTML export with Nuxt
         run: yarn generate
+      - name: List files after generate
+        run: ls -la
       - name: Verify dist directory
         run: |
           if [ ! -d "./dist" ]; then
