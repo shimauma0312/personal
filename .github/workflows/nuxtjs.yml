@@ -44,12 +44,6 @@ jobs:
         uses: actions/configure-pages@v5
         with:
           static_site_generator: nuxt
-      - name: Verify dist directory
-        run: |
-          if [ ! -d "./dist" ]; then
-            echo "dist directory does not exist"
-            exit 1
-          fi
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
