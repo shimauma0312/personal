@@ -45,9 +45,7 @@ jobs:
       - name: List files before build
         run: ls -la
       - name: Build project
-        run: npm run build
       - name: Static HTML export with Nuxt
-        run: npm run generate
       - name: List files after generate
         run: ls -la
       - name: Verify dist directory

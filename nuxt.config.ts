@@ -13,7 +13,7 @@ export default defineNuxtConfig({
   modules: [
     '@element-plus/nuxt',"@nuxt/content"
   ],
-  app: {
-    baseURL: '/barashima/',
-  }
+  // app: {
+  //   baseURL: '/barashima/',
+  // }
 })
