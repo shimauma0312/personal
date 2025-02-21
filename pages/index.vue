@@ -9,7 +9,7 @@
         <h1>Element plus検証用ページ</h1>
 
       </el-header>
-      <el-main>
+      <el-main class="margin">
         <div class="center">
           <el-avatar :size="100" src="https://avatars.githubusercontent.com/u/195411741?v=4" />
           <p>これはVue 3で作成されたホームページです。</p>
@@ -19,8 +19,14 @@
         <!--スキルカード-->
         <SkillCards class="skills-contents" />
 
-        <!--カルーセル-->>
+        <!--カルーセル-->
         <Carousel />
+
+        <!--コルプス-->
+        <Collapse />
+
+        <!--タイムライン-->
+        <Timeline class="margin-top" />
 
       </el-main>
       <!--<el-footer>aaa</el-footer>-->
@@ -44,6 +50,10 @@ header {
   border-bottom: 1px solid var(--el-border-color);
 }
 
+.margin-top{
+  margin-top:25px;
+}
+
 .center {
   display: flex;
   flex-direction: column;
@@ -55,6 +65,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
+  margin: 20px;
 }
+
 </style>
