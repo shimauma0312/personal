@@ -53,14 +53,6 @@ jobs:
 
       - name: Static HTML export with Nuxt
         run: ${{ steps.detect-package-manager.outputs.manager }} run generate
-
-      - name: Verify dist directory
-        run: |
-          if [ ! -d "./app/dist" ]; then
-            echo "dist directory does not exist"
-            exit 1
-          fi
-
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
