@@ -1,35 +1,23 @@
 <template>
-  <el-container style="height: 100%">
+  <el-container class="background" style="height: 100%">
     <!--サイドメニュー-->
     <!--<SideMenu />-->
 
     <!--メインコンテンツ-->
     <el-container>
       <el-header class="line">
-        <h1>Element plus検証用ページ</h1>
+        <h1>𝙿𝚎𝚢𝚘𝚞𝚗𝚐 𝚈𝚊𝚔𝚒𝚜𝚘𝚋𝚊 𝚒𝚜 𝚕𝚒𝚏𝚎 🍜</h1>
 
       </el-header>
       <el-main class="margin">
         <div class="center">
           <el-avatar :size="100" src="https://avatars.githubusercontent.com/u/86759249?v=4" />
-          <p>これはVue 3で作成されたホームページです。</p>
-          <el-button type="primary">Default</el-button>
+          <p>shimauma0312</p>
         </div>
 
-        <!--スキルカード-->
-        <SkillCards class="skills-contents" />
-
-        <!--カルーセル-->
-        <Carousel />
-
-        <!--コルプス-->
-        <Collapse />
-
         <!--タイムライン-->
-        <Timeline class="margin-top" />
-
+        <Timeline class="margin-top center" />
       </el-main>
-      <!--<el-footer>aaa</el-footer>-->
     </el-container>
   </el-container>
 </template>
@@ -50,8 +38,8 @@ header {
   border-bottom: 1px solid var(--el-border-color);
 }
 
-.margin-top{
-  margin-top:25px;
+.margin-top {
+  margin-top: 25px;
 }
 
 .center {
@@ -68,4 +56,7 @@ header {
   margin: 20px;
 }
 
+.background {
+  background-color: #ffffff;
+}
 </style>
