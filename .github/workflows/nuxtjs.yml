@@ -56,7 +56,6 @@ jobs:
           key: ${{ runner.os }}-nuxt-build-${{ hashFiles('dist/**') }}
           restore-keys: |
             ${{ runner.os }}-nuxt-build-
-        working-directory: /workspaces/barashimaPF
 
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
