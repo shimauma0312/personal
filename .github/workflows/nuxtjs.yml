@@ -44,25 +44,6 @@ jobs:
         uses: actions/configure-pages@v5
         with:
           static_site_generator: nuxt
-      - name: Restore cache
-        uses: actions/cache@v4
-        with:
-          path: |
-            dist
-            .nuxt
-          key: ${{ runner.os }}-nuxt-build-${{ hashFiles('dist') }}
-          restore-keys: |
-            ${{ runner.os }}-nuxt-build-
-      - name: Install dependencies
-        run: yarn install
-      - name: Check current directory
-        run: pwd
-      - name: List files before generate
-        run: ls -la
-      - name: Static HTML export with Nuxt
-        run: yarn generate
-      - name: List files after generate
-        run: ls -la
       - name: Verify dist directory
         run: |
           if [ ! -d "./dist" ]; then
