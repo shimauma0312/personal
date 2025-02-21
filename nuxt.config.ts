@@ -11,6 +11,9 @@ export default defineNuxtConfig({
     transpile: ['@element-plus/icons-vue']
   },
   modules: [
-    '@element-plus/nuxt'
-  ]
+    '@element-plus/nuxt',"@nuxt/content"
+  ],
+  app: {
+    baseURL: '/barashima/',
+  }
 })
