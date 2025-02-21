@@ -10,13 +10,17 @@
 
       </el-header>
       <el-main>
-        <div>
+        <div class="center">
+          <el-avatar :size="100" src="https://avatars.githubusercontent.com/u/195411741?v=4" />
           <p>これはVue 3で作成されたホームページです。</p>
           <el-button type="primary">Default</el-button>
         </div>
 
         <!--スキルカード-->
-        <SkillCard />
+        <SkillCards class="skills-contents" />
+
+        <!--カルーセル-->>
+        <Carousel />
 
       </el-main>
       <!--<el-footer>aaa</el-footer>-->
@@ -38,5 +42,19 @@ header {
   width: 100%;
   /* --el-border-color */
   border-bottom: 1px solid var(--el-border-color);
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.skills-contents {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
 }
 </style>

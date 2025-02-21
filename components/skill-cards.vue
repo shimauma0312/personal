@@ -28,9 +28,8 @@
   </el-space>
 </template>
 
-<style>
-.box-card {
-  width: 300px;
-  margin: 10px;
-}
+<style scoped>
+  .box-card {
+    width: 200px;
+  }
 </style>
