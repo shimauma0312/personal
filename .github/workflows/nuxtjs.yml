@@ -20,6 +20,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+
+
+
+
+
+
+
+
+
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
@@ -42,10 +53,10 @@ jobs:
         run: npm ci
       - name: Check current directory
         run: pwd
-      - name: List files before build
+      - name: List files before generate
         run: ls -la
-      - name: Build project
       - name: Static HTML export with Nuxt
+        run: npm run generate
       - name: List files after generate
         run: ls -la
       - name: Verify dist directory
