@@ -15,6 +15,6 @@ export default defineNuxtConfig({
   ],
   srcDir: "./",
   app: {
-    baseURL: '/barashima'
+    baseURL: '/shimauma.github.io/'
   }
 })
