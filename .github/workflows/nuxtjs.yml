@@ -57,19 +57,14 @@ jobs:
       - name: Verify dist directory
         run: |
           if [ ! -d "./dist" ]; then
-            echo "dist not found in ./dist. Searching..."
-            FOUND_DIST="$(find . -type d -name dist | head -n 1)"
-            if [ -z "$FOUND_DIST" ]; then
-              echo "No dist directory found."
-              exit 1
-            else
-              echo "dist found at $FOUND_DIST"
-              echo "DIST_PATH=$FOUND_DIST" >> $GITHUB_ENV
-            fi
-          fi - name: Upload artifact
+            echo "dist directory does not exist"
+            exit 1
+          fi
+
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./app/dist
+          path: dist/
 
   deploy:
     environment:
