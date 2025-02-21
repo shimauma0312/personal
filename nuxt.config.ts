@@ -5,7 +5,7 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
   css: [
-    '@/assets/main.css'
+    '@/assets/main.css',"element-plus/dist/index.css"
   ],
   build: {
     transpile: ['@element-plus/icons-vue']
