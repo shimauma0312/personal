@@ -1,20 +1,23 @@
 <template>
   <el-container style="height: 100%">
     <!--サイドメニュー-->
-    <SideMenu />
+    <!--<SideMenu />-->
+
     <!--メインコンテンツ-->
     <el-container>
       <el-header class="line">
         <h1>Element plus検証用ページ</h1>
-        <el-icon>
-          <Shop />
-        </el-icon>
+
       </el-header>
       <el-main>
         <div>
           <p>これはVue 3で作成されたホームページです。</p>
+          <el-button type="primary">Default</el-button>
         </div>
-        <el-button type="primary">Default</el-button>
+
+        <!--スキルカード-->
+        <SkillCard />
+
       </el-main>
       <!--<el-footer>aaa</el-footer>-->
     </el-container>
