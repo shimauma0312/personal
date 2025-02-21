@@ -53,6 +53,8 @@ jobs:
 
       - name: Static HTML export with Nuxt
         run: ${{ steps.detect-package-manager.outputs.manager }} run generate
+      - name: List current directory
+        run: ls
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
