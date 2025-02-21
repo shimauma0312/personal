@@ -11,7 +11,7 @@
       </el-header>
       <el-main class="margin">
         <div class="center">
-          <el-avatar :size="100" src="https://avatars.githubusercontent.com/u/195411741?v=4" />
+          <el-avatar :size="100" src="https://avatars.githubusercontent.com/u/86759249?v=4" />
           <p>これはVue 3で作成されたホームページです。</p>
           <el-button type="primary">Default</el-button>
         </div>
