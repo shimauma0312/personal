@@ -4,7 +4,7 @@
     <div class="content">
       <h1>WELCOME</h1>
       <p></p>
-      <NuxtLink to="@/home" class="button">ENTER SITE</NuxtLink>
+      <NuxtLink to="/home" class="button">ENTER SITE</NuxtLink>
     </div>
   </div>
 </template>
