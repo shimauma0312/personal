@@ -14,7 +14,7 @@ export default defineNuxtConfig({
     '@element-plus/nuxt',"@nuxt/content"
   ],
   srcDir: "./",
-  app: {
-    baseURL: '/shimauma.github.io/'
-  }
+  // app: {
+  //   baseURL: '/shimauma.github.io/'
+  // }
 })
