@@ -38,41 +38,62 @@ const sketch = (p) => {
   let particles = [];
   const particleCount = 80;
   let colorPalette = [];
+  let mouseGlow = { x: 0, y: 0, size: 100 };
 
   p.setup = () => {
     p.createCanvas(p.windowWidth, p.windowHeight);
 
-    // Nuxt風のカラーパレット
     colorPalette = [
-      p.color(66, 185, 131, 180),   // Nuxt緑
+      p.color(66, 185, 131, 180),   // 緑
       p.color(64, 158, 255, 180),   // 青
-      p.color(255, 214, 0, 180),    // 黄色
+      p.color(255, 214, 0, 180),    // 黄
       p.color(245, 108, 108, 180)   // 赤
     ];
 
-    // 初期粒子の生成
+    // 粒子
     for (let i = 0; i < particleCount; i++) {
       particles.push(new Particle());
     }
 
     // フレームレートを設定
     p.frameRate(60);
+    
+    // 初期値として画面中央の位置をセット
+    mouseGlow.x = p.windowWidth / 2;
+    mouseGlow.y = p.windowHeight / 2;
   };
 
   p.draw = () => {
     p.background(255);
-
-    // 各粒子の更新と描画
+    
+    // マウスグローを描画
+    drawMouseGlow();
+    
     for (let particle of particles) {
       particle.update();
       particle.draw();
+    }
+  };
+  
+  // マウスグローを描画する関数
+  const drawMouseGlow = () => {
+    // マウスの現在位置
+    mouseGlow.x = p.lerp(mouseGlow.x, p.mouseX, 1);
+    mouseGlow.y = p.lerp(mouseGlow.y, p.mouseY, 1);
+    
+    // ブラーエフェクト
+    p.noStroke();
+    for (let i = 50; i > 0; i--) {
+      const size = mouseGlow.size * i / 15;
+      const alpha = 100 / i;
+      p.fill(255, 120, 20, alpha); // オレンジ色のグロー
+      p.circle(mouseGlow.x, mouseGlow.y, size);
     }
   };
 
   class Particle {
     constructor() {
       this.reset();
-      // スクリーンのどこかにランダムに配置
       this.position = p.createVector(
         p.random(p.width),
         p.random(p.height)
@@ -80,7 +101,6 @@ const sketch = (p) => {
     }
 
     reset() {
-      // 基本的なプロパティ
       this.position = p.createVector(p.random(p.width), p.random(p.height));
       this.velocity = p.createVector(p.random(-0.3, 0.3), p.random(-0.3, 0.3));
       this.acceleration = p.createVector(0, 0);
@@ -93,18 +113,15 @@ const sketch = (p) => {
     }
 
     update() {
-      // 緩やかな浮遊効果
       let noiseX = p.noise(this.position.x * 0.003, this.position.y * 0.003, p.frameCount * 0.001 + this.uniqueOffset) - 0.5;
       let noiseY = p.noise(this.position.x * 0.003, this.position.y * 0.003, p.frameCount * 0.001 + 100 + this.uniqueOffset) - 0.5;
       let noiseForce = p.createVector(noiseX, noiseY);
       noiseForce.mult(0.1);
       this.applyForce(noiseForce);
 
-      // 画面の端での反発
       let boundaryForce = this.checkEdges();
       this.applyForce(boundaryForce);
 
-      // 物理シミュレーション
       this.velocity.add(this.acceleration);
       this.velocity.limit(this.maxSpeed);
       this.position.add(this.velocity);
@@ -136,8 +153,6 @@ const sketch = (p) => {
 
     draw() {
       p.noStroke();
-
-      // 粒子の描画
       p.fill(this.color);
       p.circle(this.position.x, this.position.y, this.size);
     }
