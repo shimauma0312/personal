@@ -1,6 +1,8 @@
 <template>
   <div class="welcome-container">
-    <div id="canvas-container" ref="canvasContainer"></div>
+    <client-only>
+      <div id="canvas-container" ref="canvasContainer"></div>
+    </client-only>
     <div class="content">
       <h1>WELCOME</h1>
       <p></p>
@@ -57,8 +59,7 @@ const sketch = (p) => {
   };
   
   p.draw = () => {
-    // 背景色 (Nuxt風の濃い青)
-    p.background(26, 26, 46);
+    p.background(255);
     
     // 各粒子の更新と描画
     for (let particle of particles) {
@@ -171,7 +172,7 @@ const sketch = (p) => {
   text-align: center;
   color: white;
   z-index: 1;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  text-shadow: 0 2px 4px rgb(255, 98, 0);
 }
 
 h1 {
