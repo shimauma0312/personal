@@ -7,7 +7,7 @@
       <h1>WELCOME</h1>
       <p></p>
       <!-- <NuxtLink to="/home" class="button">ENTER SITE</NuxtLink> -->
-       <NuxtLink to="/lwd-58" class="button">ENTER SITE</NuxtLink>
+      <NuxtLink to="/lwd-58" class="button">ENTER SITE</NuxtLink>
     </div>
   </div>
 </template>
@@ -22,7 +22,7 @@ onMounted(() => {
   if (process.client) {
     import('p5').then((p5Module) => {
       const p5 = p5Module.default;
-      
+
       p5Instance = new p5(sketch, canvasContainer.value);
     });
   }
@@ -38,10 +38,10 @@ const sketch = (p) => {
   let particles = [];
   const particleCount = 80;
   let colorPalette = [];
-  
+
   p.setup = () => {
     p.createCanvas(p.windowWidth, p.windowHeight);
-    
+
     // Nuxt風のカラーパレット
     colorPalette = [
       p.color(66, 185, 131, 180),   // Nuxt緑
@@ -49,36 +49,36 @@ const sketch = (p) => {
       p.color(255, 214, 0, 180),    // 黄色
       p.color(245, 108, 108, 180)   // 赤
     ];
-    
+
     // 初期粒子の生成
     for (let i = 0; i < particleCount; i++) {
       particles.push(new Particle());
     }
-    
+
     // フレームレートを設定
     p.frameRate(60);
   };
-  
+
   p.draw = () => {
     p.background(255);
-    
+
     // 各粒子の更新と描画
     for (let particle of particles) {
       particle.update();
       particle.draw();
     }
   };
-  
+
   class Particle {
     constructor() {
       this.reset();
       // スクリーンのどこかにランダムに配置
       this.position = p.createVector(
-        p.random(p.width), 
+        p.random(p.width),
         p.random(p.height)
       );
     }
-    
+
     reset() {
       // 基本的なプロパティ
       this.position = p.createVector(p.random(p.width), p.random(p.height));
@@ -91,7 +91,7 @@ const sketch = (p) => {
       this.maxForce = 0.05;
       this.uniqueOffset = p.random(100);
     }
-    
+
     update() {
       // 緩やかな浮遊効果
       let noiseX = p.noise(this.position.x * 0.003, this.position.y * 0.003, p.frameCount * 0.001 + this.uniqueOffset) - 0.5;
@@ -99,50 +99,50 @@ const sketch = (p) => {
       let noiseForce = p.createVector(noiseX, noiseY);
       noiseForce.mult(0.1);
       this.applyForce(noiseForce);
-      
+
       // 画面の端での反発
       let boundaryForce = this.checkEdges();
       this.applyForce(boundaryForce);
-      
+
       // 物理シミュレーション
       this.velocity.add(this.acceleration);
       this.velocity.limit(this.maxSpeed);
       this.position.add(this.velocity);
       this.acceleration.mult(0);
     }
-    
+
     applyForce(force) {
       this.acceleration.add(force);
     }
-    
+
     checkEdges() {
       let force = p.createVector(0, 0);
       const margin = 30;
-      
+
       if (this.position.x < margin) {
         force.x = p.map(this.position.x, 0, margin, 0.1, 0);
       } else if (this.position.x > p.width - margin) {
         force.x = p.map(this.position.x, p.width - margin, p.width, 0, -0.1);
       }
-      
+
       if (this.position.y < margin) {
         force.y = p.map(this.position.y, 0, margin, 0.1, 0);
       } else if (this.position.y > p.height - margin) {
         force.y = p.map(this.position.y, p.height - margin, p.height, 0, -0.1);
       }
-      
+
       return force;
     }
-    
+
     draw() {
       p.noStroke();
-      
+
       // 粒子の描画
       p.fill(this.color);
       p.circle(this.position.x, this.position.y, this.size);
     }
   }
-  
+
   p.windowResized = () => {
     p.resizeCanvas(p.windowWidth, p.windowHeight);
   };
