@@ -14,7 +14,7 @@ export default defineNuxtConfig({
     '@element-plus/nuxt',"@nuxt/content"
   ],
   app: {
-    baseURL: '/barashima/', // リポジトリ名に合わせて設定
+    baseURL: '/personal/', // リポジトリ名に合わせて設定
     // buildAssetsDir: 'assets',
   },
 })
