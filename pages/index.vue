@@ -1,29 +1,34 @@
 <template>
   <el-container class="background" style="height: 100%">
-    <!--サイドメニュー-->
-    <!--<SideMenu />-->
-
     <!--メインコンテンツ-->
     <el-container>
       <el-header class="header">
         <h1>𝙿𝚎𝚢𝚘𝚞𝚗𝚐 𝚈𝚊𝚔𝚒𝚜𝚘𝚋𝚊 𝚒𝚜 𝚕𝚒𝚏𝚎 🍜</h1>
       </el-header>
-      <el-main class="margin">
-        <div class="center profile-container">
-          <el-avatar :size="100" src="https://avatars.githubusercontent.com/u/86759249?v=4" class="profile-avatar" />
-          <p class="profile-name">shimauma0312</p>
-        </div>
+      
+      <el-container class="content-container">
+        <!-- メインエリア -->
+        <el-main class="main-content">
+          <div class="center">
+            <UserProfile />
+          </div>
 
-        <!--タイムライン-->
-        <Timeline class="margin-top center" />
-      </el-main>
+          <!--タイムライン-->
+          <Timeline class="margin-top center" />
+        </el-main>
+        
+        <!-- サイドバー（Qiita記事） -->
+        <el-aside class="sidebar">
+          <QiitaProfile />
+        </el-aside>
+      </el-container>
     </el-container>
   </el-container>
 </template>
-<script>
-export default {
-  name: "HomePage",
-};
+<script setup>
+// Composition API スタイルでコンポーネントをインポート
+import QiitaProfile from '~/components/qiita-profile.vue';
+import UserProfile from '~/components/user-profile.vue';
 </script>
 
 <style scoped>
@@ -63,32 +68,30 @@ header h1 {
   align-items: center;
 }
 
-.profile-container {
-  padding: 20px;
-  background-color: white;
-  border-radius: 15px;
-  transition: transform 0.3s ease;
-}
-
-.profile-avatar {
-  border: 3px solid var(--secondary-orange);
-}
-
-.profile-container:hover {
-  transform: translateY(-5px);
-}
-
-.profile-name {
-  margin-top: 15px;
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--dark-orange);
-}
-
 .skills-contents {
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 20px;
+}
+
+.content-container {
+  display: flex;
+  flex-direction: row;
+  height: calc(100vh - 80px);
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.sidebar {
+  width: 350px;
+  padding: 20px 10px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-left: 1px solid #eee;
+  overflow-y: auto;
 }
 </style>
