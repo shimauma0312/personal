@@ -119,13 +119,13 @@ const handleCloseDialog = () => {
   showSecretDialog.value = false;
 };
 
-// Qiitaから記事を取得する関数（JSONファイルから読み込み）
+// Qiitaから記事を取得する関数（JSONファイルから直接読み込み）
 const fetchQiitaArticles = async () => {
   try {
     loading.value = true;
-    // サーバーAPIを使用して、キャッシュされたJSON記事データを取得
-    const response = await fetch('/api/qiita');
-    if (!response.ok) throw new Error('サーバーAPIからデータを取得できませんでした');
+    // 静的JSONファイルを直接読み込む
+    const response = await fetch('/qiita-articles.json');
+    if (!response.ok) throw new Error('Qiita記事のJSONファイルを取得できませんでした');
     
     const data = await response.json();
     
@@ -145,7 +145,7 @@ const fetchQiitaArticles = async () => {
   } catch (error) {
     console.error('Qiita記事の取得に失敗しました:', error);
     articles.value = [];
-    ElMessage.error('Qiita記事の読み込みに失敗しました');
+    ElMessage.error('Qiita記事のJSONファイルの読み込みに失敗しました');
   } finally {
     loading.value = false;
   }
@@ -162,7 +162,7 @@ const doUpdateArticles = async () => {
     updating.value = true;
     showSecretDialog.value = false;
     
-    const response = await fetch('/personal/api/qiita?action=update');
+    const response = await fetch('/api/qiita?action=update');
     if (!response.ok) throw new Error('APIリクエストに失敗しました');
     
     const result = await response.json();
