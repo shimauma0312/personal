@@ -1,7 +1,7 @@
 <template>
   <div class="profile-container">
     <el-avatar :size="100" src="https://avatars.githubusercontent.com/u/86759249?v=4" class="profile-avatar" />
-    <p class="profile-name">shimauma0322</p>
+    <p class="profile-name">shimauma0312</p>
   </div>
 </template>
 
