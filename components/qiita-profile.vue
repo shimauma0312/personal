@@ -162,7 +162,7 @@ const doUpdateArticles = async () => {
     updating.value = true;
     showSecretDialog.value = false;
     
-    const response = await fetch('/api/qiita?action=update');
+    const response = await fetch('/personal/api/qiita?action=update');
     if (!response.ok) throw new Error('APIリクエストに失敗しました');
     
     const result = await response.json();
