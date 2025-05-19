@@ -123,8 +123,8 @@ const handleCloseDialog = () => {
 const fetchQiitaArticles = async () => {
   try {
     loading.value = true;
-    // 静的JSONファイルを直接読み込む
-    const response = await fetch('/qiita-articles.json');
+    // 静的JSONファイルを直接読み込む（publicフォルダ内）
+    const response = await fetch('/personal/qiita-articles.json');
     if (!response.ok) throw new Error('Qiita記事のJSONファイルを取得できませんでした');
     
     const data = await response.json();
