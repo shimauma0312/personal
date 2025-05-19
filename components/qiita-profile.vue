@@ -207,18 +207,8 @@ onMounted(() => {
 .qiita-section {
   width: 100%;
   max-width: 100%;
-  padding: 15px;
-  background-color: white;
-  border-radius: 15px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   text-align: center;
-  transition: transform 0.3s ease;
 }
-
-.qiita-section:hover {
-  transform: translateY(-5px);
-}
-
 .qiita-title {
   color: var(--primary-orange);
   font-size: 24px;
@@ -270,7 +260,6 @@ onMounted(() => {
 
 .article-card {
   text-align: left;
-  margin-bottom: 10px;
   transition: all 0.3s ease;
 }
 

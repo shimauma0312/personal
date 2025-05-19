@@ -78,7 +78,6 @@ header h1 {
 .content-container {
   display: flex;
   flex-direction: row;
-  height: calc(100vh - 80px);
 }
 
 .main-content {
@@ -88,7 +87,7 @@ header h1 {
 }
 
 .sidebar {
-  width: 350px;
+  width: 400px;
   padding: 20px 10px;
   background-color: rgba(255, 255, 255, 0.7);
   border-left: 1px solid #eee;
