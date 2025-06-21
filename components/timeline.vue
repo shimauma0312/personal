@@ -31,7 +31,7 @@ const activities = [
   },
   {
     title: 'SES Company, Development Department:',
-    content: 'Ah, the SES epoch. Vaguely recall hammering out some web apps with Go. Then there was that fun time deciphering ancient CakePHP scrolls – "reverse-engineering," they called it. Pretty sure I sacrificed a few brain cells in those trenches and barely escaped the legendary SES meat grinder. Good times? Debatable. SESの闇を知り、死にかけた',
+    content: 'Ah, the SES epoch. Vaguely recall hammering out some web apps with Go. Then there was that fun time deciphering ancient CakePHP scrolls – "reverse-engineering," they called it. Pretty sure I sacrificed a few brain cells in those trenches and barely escaped the legendary SES meat grinder. Good times? Debatable.',
     timestamp: '2024-04',
   },
   {
