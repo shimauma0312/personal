@@ -1,29 +1,39 @@
 <template>
-  <el-container class="background" style="height: 100%">
-    <!--メインコンテンツ-->
-    <el-container>
-      <el-header class="header">
-        <h1>𝙿𝚎𝚢𝚘𝚞𝚗𝚐 𝚈𝚊𝚔𝚒𝚜𝚘𝚋𝚊 𝚒𝚜 𝚕𝚒𝚏𝚎 🍜</h1>
-      </el-header>
-      
-      <el-container class="content-container">
-        <!-- メインエリア -->
-        <el-main class="main-content">
-          <div class="center">
-            <UserProfile />
-          </div>
+  <div class="app-container">
+    <!-- ナビゲーションヘッダー -->
+    <header class="app-header">
+      <div class="header-content">
+        <h1 class="app-title">shimauma0312</h1>
+        <p class="app-subtitle">Software Engineer & System Developer</p>
+      </div>
+    </header>
 
-          <!--タイムライン-->
-          <Timeline class="margin-top center" />
-        </el-main>
-        
-        <!-- サイドバー（Qiita記事） -->
-        <el-aside class="sidebar">
+    <!-- メインコンテンツエリア -->
+    <main class="app-main">
+      <div class="content-grid">
+        <!-- プロフィールセクション -->
+        <section class="profile-section">
+          <UserProfile />
+        </section>
+
+        <!-- タイムラインセクション -->
+        <section class="timeline-section">
+          <div class="section-header">
+            <h2 class="section-title">Experience</h2>
+            <p class="section-subtitle">My professional journey and key milestones</p>
+          </div>
+          <Timeline />
+        </section>
+      </div>
+
+      <!-- サイドバー -->
+      <aside class="app-sidebar">
+        <div class="sidebar-content">
           <QiitaProfile />
-        </el-aside>
-      </el-container>
-    </el-container>
-  </el-container>
+        </div>
+      </aside>
+    </main>
+  </div>
 </template>
 <script setup>
 // Composition API スタイルでコンポーネントをインポート
@@ -32,65 +42,164 @@ import UserProfile from '~/components/user-profile.vue';
 </script>
 
 <style scoped>
-:root {
-  --primary-orange: #ff7a00;
-  --secondary-orange: #ff9e44;
-  --dark-orange: #e56c00;
-  --light-bg: #fff9f3;
+.app-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, 
+    #667eea 0%, 
+    #764ba2 25%, 
+    #f093fb 50%, 
+    #f5576c 75%, 
+    #4facfe 100%
+  );
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
 }
 
-header h1 {
-  color: var(--primary-orange);
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  padding: var(--spacing-5) 0;
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-6);
+  text-align: center;
+}
+
+.app-title {
+  font-size: var(--font-size-large-title);
   font-weight: 700;
+  color: rgba(255, 255, 255, 0.95);
   margin: 0;
-  letter-spacing: 1px;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  letter-spacing: -0.5px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.header {
-  width: 100%;
-  padding: 20px 0;
-  border-bottom: 2px solid var(--secondary-orange);
-  box-shadow: 0 2px rgb(255, 123, 0);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.app-subtitle {
+  font-size: var(--font-size-callout);
+  color: rgba(255, 255, 255, 0.8);
+  margin: var(--spacing-1) 0 0;
+  font-weight: 400;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-.margin-top {
-  margin-top: 35px;
+.app-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-10) var(--spacing-6);
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: var(--spacing-12);
+  align-items: start;
 }
 
-.center {
+.content-grid {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  gap: var(--spacing-16);
 }
 
-.skills-contents {
+.profile-section {
   display: flex;
   justify-content: center;
-  align-items: center;
-  margin: 20px;
 }
 
-.content-container {
-  display: flex;
-  flex-direction: row;
+.timeline-section {
+  width: 100%;
 }
 
-.main-content {
-  flex: 1;
-  padding: 20px;
-  overflow-y: auto;
+.section-header {
+  text-align: center;
+  margin-bottom: var(--spacing-12);
 }
 
-.sidebar {
-  width: 400px;
-  padding: 20px 10px;
-  background-color: rgba(255, 255, 255, 0.7);
-  border-left: 1px solid #eee;
-  overflow-y: auto;
+.section-title {
+  font-size: var(--font-size-title-1);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+  letter-spacing: -0.3px;
+}
+
+.section-subtitle {
+  font-size: var(--font-size-callout);
+  color: var(--text-secondary);
+  margin: var(--spacing-2) 0 0;
+  font-weight: 400;
+}
+
+.app-sidebar {
+  position: sticky;
+  top: calc(var(--spacing-20) + 60px);
+  height: fit-content;
+}
+
+.sidebar-content {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: var(--radius-large);
+  padding: var(--spacing-6);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sidebar-content:hover {
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 16px 64px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 968px) {
+  .app-main {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-8);
+    padding: var(--spacing-8) var(--spacing-4);
+  }
+  
+  .app-sidebar {
+    position: relative;
+    top: auto;
+  }
+  
+  .content-grid {
+    gap: var(--spacing-12);
+  }
+}
+
+@media (max-width: 640px) {
+  .app-title {
+    font-size: var(--font-size-title-1);
+  }
+  
+  .header-content,
+  .app-main {
+    padding-left: var(--spacing-4);
+    padding-right: var(--spacing-4);
+  }
+  
+  .content-grid {
+    gap: var(--spacing-8);
+  }
+  
+  .section-header {
+    margin-bottom: var(--spacing-8);
+  }
 }
 </style>

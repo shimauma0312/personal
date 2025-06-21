@@ -1,5 +1,19 @@
 [
   {
+    "id": "e521afd330271bb41f0f",
+    "title": "ブランチ名に脳死で「/」使ってたらコけた。実は「/」には意味があった話",
+    "url": "https://qiita.com/shimauma0322/items/e521afd330271bb41f0f",
+    "likes_count": 4,
+    "created_at": "2025-06-03T22:24:11+09:00",
+    "updated_at": "2025-06-04T06:55:05+09:00",
+    "tags": [
+      "Git",
+      "GitHub",
+      "初心者",
+      "ブランチ"
+    ]
+  },
+  {
     "id": "96052d084d2975b977c0",
     "title": "GitHub CopilotがMCPで無限ループを起こすようになった問題【VSCode 1.100】",
     "url": "https://qiita.com/shimauma0322/items/96052d084d2975b977c0",
@@ -16,7 +30,7 @@
     "id": "717b045333bbe26d5435",
     "title": "ん？命名に日本語使いまくったらコメント不要になるの？ 思想強め上司とのトラウマを添えて",
     "url": "https://qiita.com/shimauma0322/items/717b045333bbe26d5435",
-    "likes_count": 3,
+    "likes_count": 4,
     "created_at": "2025-05-10T17:00:17+09:00",
     "updated_at": "2025-05-16T08:53:49+09:00",
     "tags": [

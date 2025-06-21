@@ -1,6 +1,143 @@
-/* filepath: /workspaces/barashimaPF/assets/main.css */
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Armenian:wght@100..900&family=Shadows+Into+Light&display=swap');
+/* Apple Design System inspired CSS */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+  /* Apple-inspired Color Palette */
+  --apple-blue: #007AFF;
+  --apple-blue-dark: #0056CC;
+  --apple-gray-6: #F2F2F7;
+  --apple-gray-5: #E5E5EA;
+  --apple-gray-4: #C7C7CC;
+  --apple-gray-3: #AEAEB2;
+  --apple-gray-2: #636366;
+  --apple-gray-1: #48484A;
+  --apple-black: #1C1C1E;
+  --apple-white: #FFFFFF;
+  
+  /* Semantic Colors */
+  --primary-color: var(--apple-blue);
+  --primary-color-hover: var(--apple-blue-dark);
+  --text-primary: var(--apple-black);
+  --text-secondary: var(--apple-gray-2);
+  --text-tertiary: var(--apple-gray-3);
+  --background-primary: var(--apple-white);
+  --background-secondary: var(--apple-gray-6);
+  --separator: var(--apple-gray-5);
+  
+  /* Typography Scale */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-size-large-title: 34px;
+  --font-size-title-1: 28px;
+  --font-size-title-2: 22px;
+  --font-size-title-3: 20px;
+  --font-size-headline: 17px;
+  --font-size-body: 17px;
+  --font-size-callout: 16px;
+  --font-size-subheadline: 15px;
+  --font-size-footnote: 13px;
+  --font-size-caption-1: 12px;
+  --font-size-caption-2: 11px;
+  
+  /* Spacing Scale */
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-5: 20px;
+  --spacing-6: 24px;
+  --spacing-8: 32px;
+  --spacing-10: 40px;
+  --spacing-12: 48px;
+  --spacing-16: 64px;
+  --spacing-20: 80px;
+  
+  /* Border Radius */
+  --radius-small: 8px;
+  --radius-medium: 12px;
+  --radius-large: 16px;
+  --radius-xl: 20px;
+  
+  /* Shadows */
+  --shadow-1: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-2: 0 4px 16px rgba(0, 0, 0, 0.1);
+  --shadow-3: 0 8px 32px rgba(0, 0, 0, 0.12);
+  
+  /* Glass Effects */
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-bg-strong: rgba(255, 255, 255, 0.2);
+  --glass-border: rgba(255, 255, 255, 0.3);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  --glass-shadow-hover: 0 16px 64px rgba(0, 0, 0, 0.15);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeSpeed;
+}
+
 body {
-  font-family: "Noto Sans Armenian", serif;
-  margin: auto;
+  font-family: var(--font-family);
+  font-size: var(--font-size-body);
+  line-height: 1.47;
+  color: var(--text-primary);
+  background-color: var(--background-primary);
+  margin: 0;
+  padding: 0;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Apple-style scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--apple-gray-4);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--apple-gray-3);
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Glass Morphism Utility Classes */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+.glass-strong {
+  background: var(--glass-bg-strong);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+.glass:hover {
+  box-shadow: var(--glass-shadow-hover);
 }
