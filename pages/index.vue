@@ -3,8 +3,19 @@
     <!-- ナビゲーションヘッダー -->
     <header class="app-header">
       <div class="header-content">
-        <h1 class="app-title">shimauma0312</h1>
-        <p class="app-subtitle">Software Engineer & System Developer</p>
+        <div class="title-container">
+          <h1 class="app-title">shimauma0312 / Miyamaru Fuki</h1>
+          <p class="app-subtitle">{{ subtitle }}</p>
+        </div>
+        <div class="language-toggle">
+          <button 
+            @click="toggleLanguage" 
+            class="toggle-button"
+            :class="{ 'active': isJapanese }"
+          >
+            {{ isJapanese ? 'English' : 'JP' }}
+          </button>
+        </div>
       </div>
     </header>
 
@@ -20,7 +31,7 @@
         <section class="timeline-section">
           <div class="section-header">
             <h2 class="section-title">Experience</h2>
-            <p class="section-subtitle">My professional journey and key milestones</p>
+            <p class="section-subtitle">{{ experienceSubtitle }}</p>
           </div>
           <Timeline />
         </section>
@@ -35,10 +46,30 @@
     </main>
   </div>
 </template>
-<script setup>
-// Composition API スタイルでコンポーネントをインポート
+<script lang="ts" setup>
+import { computed, provide, ref } from 'vue';
 import QiitaProfile from '~/components/qiita-profile.vue';
 import UserProfile from '~/components/user-profile.vue';
+
+// Language switching logic
+const getDefaultLanguage = (): boolean => {
+  if (typeof window !== 'undefined') {
+    const browserLang = navigator.language || navigator.languages?.[0] || 'ja';
+    return browserLang.startsWith('ja');
+  }
+  return true;
+};
+
+const isJapanese = ref(getDefaultLanguage());
+
+const toggleLanguage = () => {
+  isJapanese.value = !isJapanese.value;
+};
+
+provide('isJapanese', isJapanese);
+
+const subtitle = computed(() => isJapanese.value ? 'パソコンにらめっこ職人' : 'Software Engineer & System Developer');
+const experienceSubtitle = computed(() => isJapanese.value ? '主要なマイルストーン' : 'My professional journey and key milestones');
 </script>
 
 <style scoped>
@@ -77,7 +108,14 @@ import UserProfile from '~/components/user-profile.vue';
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 var(--spacing-6);
-  text-align: center;
+  display: flex;
+  justify-content: center; /* 中央揃えに変更 */
+  align-items: center;
+  position: relative; /* 相対位置を基準にする */
+}
+
+.title-container {
+  text-align: center; /* 中央揃えに変更 */
 }
 
 .app-title {
@@ -95,6 +133,43 @@ import UserProfile from '~/components/user-profile.vue';
   margin: var(--spacing-1) 0 0;
   font-weight: 400;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.language-toggle {
+  position: absolute;
+  right: var(--spacing-6);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.toggle-button {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-medium);
+  padding: var(--spacing-2) var(--spacing-4);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: var(--font-size-footnote);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.toggle-button:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.95);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.toggle-button.active {
+  background: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 1);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .app-main {
