@@ -1,5 +1,12 @@
 <template>
-  <NuxtLayout>
+  <div>
     <NuxtPage />
-  </NuxtLayout>
+  </div>
 </template>
+
+<script lang="ts" setup>
+</script>
+
+<style>
+/* app.vue has been reset */
+</style>

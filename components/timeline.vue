@@ -1,16 +1,5 @@
 <template>
   <div class="timeline-container">
-    <!-- 言語切り替えトグル -->
-    <div class="language-toggle">
-      <button 
-        @click="toggleLanguage" 
-        class="toggle-button"
-        :class="{ 'active': isJapanese }"
-      >
-        {{ isJapanese ? 'English' : 'JP' }}
-      </button>
-    </div>
-    
     <div class="timeline-line"></div>
     <div
       v-for="(activity, index) in currentActivities"
@@ -39,26 +28,36 @@
 </template>
   
 <script lang="ts" setup>
-import { computed, ref } from 'vue'
+import { computed, inject, ref } from 'vue'
 
-// ブラウザの言語設定を取得してデフォルト言語を決定
-const getDefaultLanguage = (): boolean => {
-  if (typeof window !== 'undefined') {
-    const browserLang = navigator.language || navigator.languages?.[0] || 'ja'
-    // 日本語の場合はtrue、それ以外（英語等）はfalse
-    return browserLang.startsWith('ja')
-  }
-  // サーバーサイドの場合はデフォルトで日本語
-  return true
-}
-
-const isJapanese = ref(getDefaultLanguage())
+// isJapaneseの状態を親コンポーネントから注入
+const isJapanese = inject('isJapanese', ref(true))
 
 const activitiesEn = [
   {
-    title: 'Disaster Prevention Company, Systems Department:',
-    content: 'My current soul-crushing gig involves a lot of screen-gazing, mostly trying to get Nuxt3, Laravel, and SQLServer to behave for our in-house systems. And soon, a large-scale destructive war, also known as the "core system replacement," is scheduled to unfold. You can usually find me making difficult faces at my monitor, muttering to myself while pacing, or fueled by Monster Energy, occasionally prodding some code. It\'s a glamorous life.',
-    timestamp: '2025-1 - Present',
+    title: 'The Beginning',
+    content: 'In high school, I was lured by the dream of forex trading and started programming to create a system trade. After much struggle, my prototype magically wiped out my assets in an instant. Burned out, I sold my Nintendo Switch to fund my dating expenses.',
+    timestamp: '2019',
+  },
+  {
+    title: 'HAL',
+    content: 'HAL: where I absorbed network and coding fundamentals, probably through sheer willpower. Tinkered with making sound waves look cool (audio spectral analysis), taught computers to play peek-a-boo (machine learning for image recognition), and haphazardly assembled some web apps with Spring, Laravel, and C#.Net, mostly because I could. Entered a few coding contests, mostly for the snacks. My win rate was impressively zero. But hey, I showed up!',
+    timestamp: '2020-04 - 2024-03',
+  },
+  {
+    title: 'Real Estate Tech Company, Development Division',
+    content: 'Pretty sure I signed up to be a debugger here, but somehow ended up in epic battles with Java batch jobs (mostly losing) and carefully navigating a minefield of legacy PHP, trying not to be the one who broke it all. It was, technically speaking, employment. My key performance indicator was Monster Energy consumption, which, fun fact, led to a delightful liver ailment.',
+    timestamp: '2021-09 - 2024-03',
+  },
+  {
+    title: 'Major IT Services Company (Internship)',
+    content: 'Internship saga: conjured an HR system from the ether using C#.NET and SQLServer. Then they made me *talk* about it. In front of *people*. The audacity. Rumor has it they actually deployed it, which is frankly terrifying. I was mainly there for the free coffee and perfecting the art of looking busy.',
+    timestamp: '2022-09 - 2022-11',
+  },
+  {
+    title: 'SES Company, Development Department:',
+    content: 'Ah, the SES epoch. Vaguely recall hammering out some web apps with Go. Then there was that fun time deciphering ancient CakePHP scrolls – "reverse-engineering," they called it. Pretty sure I sacrificed a few brain cells in those trenches and barely escaped the legendary SES meat grinder. Good times? Debatable.',
+    timestamp: '2024-04 - 2024-12',
   },
   {
     title: 'Joined a Certain Mysterious Tech Community:',
@@ -66,32 +65,37 @@ const activitiesEn = [
     timestamp: '2024-05 - Present',
   },
   {
-    title: 'SES Company, Development Department:',
-    content: 'Ah, the SES epoch. Vaguely recall hammering out some web apps with Go. Then there was that fun time deciphering ancient CakePHP scrolls – "reverse-engineering," they called it. Pretty sure I sacrificed a few brain cells in those trenches and barely escaped the legendary SES meat grinder. Good times? Debatable.',
-    timestamp: '2024-04',
-  },
-  {
-    title: 'Major IT Services Company (Internship)',
-    content: 'Internship saga: conjured an HR system from the ether using C#.NET and SQLServer. Then they made me *talk* about it. In front of *people*. The audacity. Rumor has it they actually deployed it, which is frankly terrifying. I was mainly there for the free coffee and perfecting the art of looking busy.',
-    timestamp: '2022-09',
-  },
-  {
-    title: 'Real Estate Tech Company, Development Division',
-    content: 'Pretty sure I signed up to be a debugger here, but somehow ended up in epic battles with Java batch jobs (mostly losing) and carefully navigating a minefield of legacy PHP, trying not to be the one who broke it all. It was, technically speaking, employment. My key performance indicator was Monster Energy consumption, which, fun fact, led to a delightful liver ailment.',
-    timestamp: '2021-09',
-  },
-  {
-    title: 'HAL',
-    content: 'HAL: where I absorbed network and coding fundamentals, probably through sheer willpower. Tinkered with making sound waves look cool (audio spectral analysis), taught computers to play peek-a-boo (machine learning for image recognition), and haphazardly assembled some web apps with Spring, Laravel, and C#.Net, mostly because I could. Entered a few coding contests, mostly for the snacks. My win rate was impressively zero. But hey, I showed up!',
-    timestamp: '2020-04',
+    title: 'Disaster Prevention Company, Systems Department:',
+    content: 'My current soul-crushing gig involves a lot of screen-gazing, mostly trying to get Nuxt3, Laravel, and SQLServer to behave for our in-house systems. And soon, a large-scale destructive war, also known as the "core system replacement," is scheduled to unfold. You can usually find me making difficult faces at my monitor, muttering to myself while pacing, or fueled by Monster Energy, occasionally prodding some code. It\'s a glamorous life.',
+    timestamp: '2025-1 - Present',
   },
 ]
 
 const activitiesJa = [
   {
-    title: '防災関連企業 システム部門:',
-    content: '現在の仕事は、主に画面とのにらめっこ。\nNuxt3、Laravel、SQLServerが対戦相手。そして近々、基幹システムリプレイスという名の大規模破壊戦争が始まる予定。\n普段はモニターに向かって難しい顔をしたり、ぶつぶつ独り言を言いながらウロウロしたり、モンスターエナジーに支えられながら時々コードをつついたりしている。\n華やかな人生。',
-    timestamp: '2025-1 - 現在',
+    title: '始まり',
+    content: '高校時代、為替という夢の言葉に惑わされ、システムトレードをするためにプログラミングを始めた。\nそして苦労の末に完成した試作品は、まるで魔法のように私の資産を一瞬で消し去った。\n燃え尽きた自分はデート代を捻出するためにNintendo Switchを売った。',
+    timestamp: '2019',
+  },
+  {
+    title: 'HAL',
+    content: 'おそらく純粋な意志力でネットワークとコーディングの基礎を吸収した場所。\n音声スペクトル解析とか、画像認識の機械学習とか、Spring、Laravel、C#.Netでウェブアプリをでたらめに組み立てたりした。\nU-22などのいくつかのコーディングコンテスト・ハッカソンに参加したが、主にお菓子目当て。勝率は見事にゼロだった。',
+    timestamp: '2020-04 - 2024-03',
+  },
+  {
+    title: '不動産テック企業 開発部門',
+    content: '不動産業界では知らない人はいないぐらいの大きなIT企業に、テレフォンスタッフ兼デバッガーとして契約した。だが、なぜかJavaバッチジョブとの壮絶な戦い（大体負け）と、レガシーPHPの地雷原を慎重に歩き回り破壊者にならぬように注意する事が業務になった。\n社内での通り名は「夜にだけ出現する妖精さん」。\n昼は学生・夜はエンジニアになり、慢性的な睡眠不足に陥った。これが後に新卒カードを破り捨てるネガティブイベントのきっかけとなった。\n私の主要業績指標はモンスターエナジーの消費量で、これが楽しい楽しい肝臓の病気につながったのは余談だ。',
+    timestamp: '2021-09 - 2024-03',
+  },
+  {
+    title: '大手IT企業（インターンシップ）',
+    content: 'C#.NETとSQLServerを使って虚無からHRシステムを錬成した。そして図々しくもリリースプレゼンまでさせられた。\n噂によると実際に導入されたらしいが、それは率直に言って無謀。一体誰がインターンの作ったジャングルを保守するのか。\n無料のドリンクサーバー目当てと、忙しそうに見せる技術の習得のためにそこにいたはずなのに。',
+    timestamp: '2022-09 - 2022-11',
+  },
+  {
+    title: 'SES企業 開発部門:',
+    content: 'Goでウェブアプリを叩き出していたのをぼんやりと覚えているが、不動産テック企業時代からの身体的負債によって体調を崩してオジャンになった。\nその後、CakePHPの巻物を解読する楽しい時間があった。\n肝臓の病気（エナドリ中毒）と塹壕で脳細胞をいくつか犠牲にし、品川という伝説のSES肉挽き場からかろうじて逃げ出した。\nZ世代の鏡らしい良い思い出。',
+    timestamp: '2024-04 - 2024-12',
   },
   {
     title: 'とある技術コミュニティ:',
@@ -99,29 +103,9 @@ const activitiesJa = [
     timestamp: '2024-05 - 現在',
   },
   {
-    title: 'SES企業 開発部門:',
-    content: 'Goでウェブアプリを叩き出していたのをぼんやりと覚えているが、不動産テック企業時代からの身体的負債によって体調を崩してオジャンになった。\nその後、CakePHPの巻物を解読する楽しい時間があった。\n肝臓の病気（エナドリ中毒）と塹壕で脳細胞をいくつか犠牲にし、品川という伝説のSES肉挽き場からかろうじて逃げ出した。\nZ世代の鏡らしい良い思い出。',
-    timestamp: '2024-04',
-  },
-  {
-    title: '大手IT企業（インターンシップ）',
-    content: 'C#.NETとSQLServerを使って虚無からHRシステムを錬成した。そして図々しくもリリースプレゼンまでさせられた。\n噂によると実際に導入されたらしいが、それは率直に言って無謀。一体誰がインターンの作ったジャングルを保守するのか。\n無料のドリンクサーバー目当てと、忙しそうに見せる技術の習得のためにそこにいたはずなのに。',
-    timestamp: '2022-09',
-  },
-  {
-    title: '不動産テック企業 開発部門',
-    content: '不動産業界では知らない人はいないぐらいの大きなIT企業に、テレフォンスタッフ兼デバッガーとして契約した。だが、なぜかJavaバッチジョブとの壮絶な戦い（大体負け）と、レガシーPHPの地雷原を慎重に歩き回り破壊者にならぬように注意する事が業務になった。\n社内での通り名は「夜にだけ出現する妖精さん」。\n昼は学生・夜はエンジニアになり、慢性的な睡眠不足に陥った。これが後に新卒カードを破り捨てるネガティブイベントのきっかけとなった。\n私の主要業績指標はモンスターエナジーの消費量で、これが楽しい楽しい肝臓の病気につながったのは余談だ。',
-    timestamp: '2021-09',
-  },
-  {
-    title: 'HAL',
-    content: 'おそらく純粋な意志力でネットワークとコーディングの基礎を吸収した場所。\n音声スペクトル解析とか、画像認識の機械学習とか、Spring、Laravel、C#.Netでウェブアプリをでたらめに組み立てたりした。\nU-22などのいくつかのコーディングコンテスト・ハッカソンに参加したが、主にお菓子目当て。勝率は見事にゼロだった。',
-    timestamp: '2020-04',
-  },
-  {
-    title: '始まり',
-    content: '高校時代、為替という夢の言葉に惑わされ、システムトレードをするためにプログラミングを始めた。\nそして苦労の末に完成した試作品は、まるで魔法のように私の資産を一瞬で消し去った。\n燃え尽きた自分はデート代を捻出するためにNintendo Switchを売った。',
-    timestamp: '2019',
+    title: '防災関連企業 システム部門:',
+    content: '現在の仕事は、主に画面とのにらめっこ。\nNuxt3、Laravel、SQLServerが対戦相手。そして近々、基幹システムリプレイスという名の大規模破壊戦争が始まる予定。\n普段はモニターに向かって難しい顔をしたり、ぶつぶつ独り言を言いながらウロウロしたり、モンスターエナジーに支えられながら時々コードをつついたりしている。\n華やかな人生。',
+    timestamp: '2025-1 - 現在',
   },
 ]
 
@@ -129,48 +113,9 @@ const currentActivities = computed(() => {
   return isJapanese.value ? activitiesJa : activitiesEn
 })
 
-const toggleLanguage = () => {
-  isJapanese.value = !isJapanese.value
-}
 </script>
 
 <style scoped>
-.language-toggle {
-  display: flex;
-  justify-content: flex-end;
-  margin-bottom: var(--spacing-8);
-}
-
-.toggle-button {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: var(--radius-medium);
-  padding: var(--spacing-2) var(--spacing-4);
-  color: rgba(255, 255, 255, 0.8);
-  font-size: var(--font-size-footnote);
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.toggle-button:hover {
-  background: rgba(255, 255, 255, 0.15);
-  color: rgba(255, 255, 255, 0.95);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-}
-
-.toggle-button.active {
-  background: rgba(255, 255, 255, 0.2);
-  color: rgba(255, 255, 255, 1);
-  border-color: rgba(255, 255, 255, 0.3);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
 .timeline-container {
   position: relative;
   max-width: 800px;
