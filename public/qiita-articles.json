@@ -1,5 +1,18 @@
 [
   {
+    "id": "a14e36a6517c3fd60961",
+    "title": "VSCodeさん、文字を上書きするのをやめてください。",
+    "url": "https://qiita.com/shimauma0322/items/a14e36a6517c3fd60961",
+    "likes_count": 1,
+    "created_at": "2025-06-23T12:18:23+09:00",
+    "updated_at": "2025-06-23T15:45:53+09:00",
+    "tags": [
+      "ショートカット",
+      "初心者",
+      "VSCode"
+    ]
+  },
+  {
     "id": "e521afd330271bb41f0f",
     "title": "ブランチ名に脳死で「/」使ってたらコけた。実は「/」には意味があった話",
     "url": "https://qiita.com/shimauma0322/items/e521afd330271bb41f0f",
@@ -30,7 +43,7 @@
     "id": "717b045333bbe26d5435",
     "title": "ん？命名に日本語使いまくったらコメント不要になるの？ 思想強め上司とのトラウマを添えて",
     "url": "https://qiita.com/shimauma0322/items/717b045333bbe26d5435",
-    "likes_count": 4,
+    "likes_count": 5,
     "created_at": "2025-05-10T17:00:17+09:00",
     "updated_at": "2025-05-16T08:53:49+09:00",
     "tags": [

@@ -10,27 +10,26 @@
     </div>
     
     <div class="profile-info">
-      <h3 class="profile-name">shimauma0312</h3>
-      <p class="profile-role">Software Engineer</p>
+      <h3 class="profile-name">shimauma0312 / Miyamaru Fuki</h3>
+      <p class="profile-role">{{ role }}</p>
       <p class="profile-description">
-        Passionate about building scalable systems and exploring new technologies. 
-        Currently working on modernizing legacy systems and developing web applications.
+        {{ description }}
       </p>
       
       <div class="profile-stats">
         <div class="stat-item">
           <span class="stat-number">5+</span>
-          <span class="stat-label">Years Experience</span>
+          <span class="stat-label">{{ experienceLabel }}</span>
         </div>
         <div class="stat-divider"></div>
         <div class="stat-item">
           <span class="stat-number">5+</span>
-          <span class="stat-label">Projects</span>
+          <span class="stat-label">{{ projectsLabel }}</span>
         </div>
         <div class="stat-divider"></div>
         <div class="stat-item">
           <span class="stat-number">3</span>
-          <span class="stat-label">Languages</span>
+          <span class="stat-label">{{ languagesLabel }}</span>
         </div>
       </div>
       
@@ -54,10 +53,18 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'UserProfile',
-}
+<script lang="ts" setup>
+import { computed, inject, ref } from 'vue';
+
+const isJapanese = inject('isJapanese', ref(true));
+
+const role = computed(() => isJapanese.value ? 'ソフトウェアエンジニア' : 'Software Engineer');
+const description = computed(() => isJapanese.value 
+  ? 'スケーラブルなシステムの構築と新しい技術の探求に情熱を注いでいます。' 
+  : 'Passionate about building scalable systems and exploring new technologies. ');
+const experienceLabel = computed(() => isJapanese.value ? '年経験' : 'Years Experience');
+const projectsLabel = computed(() => isJapanese.value ? 'プロジェクト' : 'Projects');
+const languagesLabel = computed(() => isJapanese.value ? '言語' : 'Languages');
 </script>
 
 <style scoped>
