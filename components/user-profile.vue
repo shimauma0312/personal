@@ -60,7 +60,7 @@ const isJapanese = inject('isJapanese', ref(true));
 
 const role = computed(() => isJapanese.value ? 'ソフトウェアエンジニア' : 'Software Engineer');
 const description = computed(() => isJapanese.value 
-  ? 'スケーラブルなシステムの構築と新しい技術の探求に情熱を注いでいます。' 
+  ? 'スケーラブルなシステムの構築と新しい技術の探求に情熱を注いでいるつもりです。' 
   : 'Passionate about building scalable systems and exploring new technologies. ');
 const experienceLabel = computed(() => isJapanese.value ? '年経験' : 'Years Experience');
 const projectsLabel = computed(() => isJapanese.value ? 'プロジェクト' : 'Projects');
