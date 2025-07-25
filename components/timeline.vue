@@ -30,13 +30,12 @@
 <script lang="ts" setup>
 import { computed, inject, ref } from 'vue'
 
-// isJapaneseの状態を親コンポーネントから注入
 const isJapanese = inject('isJapanese', ref(true))
 
 const activitiesEn = [
   {
     title: 'The Beginning',
-    content: 'In high school, I was lured by the dream of forex trading and started programming to create a system trade. After much struggle, my prototype magically wiped out my assets in an instant. Burned out, I sold my Nintendo Switch to fund my dating expenses.',
+    content: `In high school, I was lured by the dream of forex trading and started programming to create a system trade. After much struggle, my prototype magically wiped out my assets in an instant. Burned out, I sold my Nintendo Switch to fund my dating expenses.`,
     timestamp: '2019',
   },
   {
@@ -51,12 +50,12 @@ const activitiesEn = [
   },
   {
     title: 'Major SIer ERP Division (Internship)',
-    content: `Sold my soul to Microsoft and conjured an HR system out of the void. Then, shamelessly, I was made to present the release in front of a crowd. It was my first time touching .NET, and I almost fell in love with Microsoft. Rumor has it they actually deployed what I made, which is, frankly, reckless. Who's going to maintain a jungle built by an intern? When FTP exploded with I/O errors and stopped business, I spent about a week diving into the kernel to help out, but honestly, that's not an intern's job. I was mostly there for the free drink server and to master the art of looking busy.`,
+    content: `Sold my soul to Microsoft and conjured an HR system out of the void using .NET. Then, shamelessly, I was made to present the release in front of a crowd. It was my first time touching .NET, and I almost fell in love with Microsoft. Rumor has it they actually deployed what I made, which is, frankly, reckless. Who's going to maintain a jungle built by an intern? When FTP exploded with I/O errors and stopped business, I spent about half a month diving into the kernel to help out, and as a side effect, I overcame my CUI allergy. Honestly, that's not an intern's job. I was mostly there for the free drink server and to master the art of looking busy.`,
     timestamp: '2022-09 - 2022-11',
   },
   {
     title: 'SES Company, Development Department:',
-    content: `I vaguely remember hammering out some web apps in Go, but thanks to the physical debt I racked up at the real estate tech company, my health tanked and the gig fizzled out. After that, I had the "pleasure" of deciphering ancient CakePHP scrolls. Sacrificed a few brain cells to liver disease (energy drink addiction) and personal drama, but still decided to fight the legendary SES meat grinder in Shinagawa, only to be swallowed by the financial darkness. A true Gen Z memory, apparently.`,
+    content: `I vaguely remember cranking out web apps in Go, but the physical debt from my real estate tech days finally caught up with me and my health crashed, so that gig went up in smoke. After that, I had the "pleasure" of deciphering ancient CakePHP scrolls while ignoring the never-ending religious war between Agile and Waterfall in the office. Sacrificed a few brain cells to liver disease (energy drink addiction) and personal drama, but still decided to take on the legendary SES meat grinder in Shinagawa, only to be devoured by the financial darkness. Apparently, that's what it means to be a model Gen Z engineer.`,
     timestamp: '2024-04 - 2024-12',
   },
   {
@@ -66,8 +65,8 @@ const activitiesEn = [
   },
   {
     title: 'A Certain Company, Systems Department:',
-    content: `My current job mainly involves production operations and new development. My main opponent is a so-called "modular monolith" (read: a chimera). Most days, you can find me making difficult faces at my monitor, muttering to myself while pacing around, and occasionally poking at code while being propped up by Monster Energy. It may look glamorous, but in reality, I'm a full-stack engineer wading through the mud.`,
-    timestamp: '2025-1 - Present',
+    content: `My current job is mainly production operations and new development. My main opponent is a so-called "modular monolith" (read: a chimera). Most days, you'll find me making difficult faces at my monitor, muttering to myself while pacing around, and occasionally poking at code, all while being propped up by Monster Energy. It might look glamorous, but in reality, I'm a full-stack engineer wading through the mud—and sometimes playing doctor for broken PCs. I'm a paperless human, so if you ask me about printer issues, all I can say is, "Printer? What's that?"`,
+    timestamp: '2025-01 - Present',
   },
 ]
 
@@ -84,17 +83,17 @@ const activitiesJa = [
   },
   {
     title: '不動産テックな大手会社の開発部門',
-    content: '不動産業界では知らない人はいないぐらいの大きなIT企業に、テレフォンスタッフ兼デバッガーとして契約した。だが、なぜかJavaバッチジョブとの壮絶な戦い（大体負け）と、モノリスなせいで起きまくるコンフリクトを殴り飛ばしながらレガシーPHPの地雷原を慎重に歩き回る事が業務になった。\n社内での通り名は「夜にだけ出現する妖精さん」。\n昼は学生・夜はエンジニアになり、慢性的な睡眠不足に陥った。これが後に新卒カードを破り捨てるネガティブイベントのきっかけとなった。\n私の主要業績指標はモンスターエナジーの消費量で、これが楽しい楽しい肝臓の病気につながったのは余談だ。',
+    content: '不動産業界では知らない人はいないぐらいの大きなIT企業に、テレフォンスタッフ兼デバッガーとして契約した。だが、なぜかJavaバッチジョブとの壮絶な戦い（大体負け）と、モノリスで起きまくるコンフリクトを殴り飛ばしながらレガシーPHPの地雷原を慎重に歩き回る事が業務になった。\n昼は学生・夜はエンジニアになり、慢性的な睡眠不足に陥ったが、これが後に新卒カードを破り捨てるネガティブイベントのきっかけとなった。\n私の主要業績指標はモンスターエナジーの消費量で、これが楽しい楽しい肝臓の病気につながったのは余談だ。',
     timestamp: '2021-09 - 2024-03',
   },
   {
     title: '大手SIerのERP事業部（インターンシップ）',
-    content: 'Microsoft製品に魂を売り、虚無からHRシステムを錬成した。そして図々しくも大勢の前でリリースプレゼンまでさせられた。初めて.Netを触ったが、危うくMicrosoftに恋をすることろだった。\n噂によると実際に導入されたらしいが、それは率直に言って無謀。一体誰がインターンの作ったジャングルを保守するのか。\nFTPがI/Oエラーで爆発して業務が止まった時はカーネルの奥底まで潜り込む手伝いを一週間ほどしたが、あれはインターンの仕事ではないと思う。\n無料のドリンクサーバー目当てと、忙しそうに見せる技術の習得のためにそこにいたはずなのに。',
+    content: 'Microsoft製品に魂を売り、.Netで虚無からHRシステムを錬成した。そして図々しくも大勢の前でリリースプレゼンまでさせられた。\n噂によると実際に導入されたらしいが、それは率直に言って無謀。一体誰がインターンの作ったジャングルを保守するのか。\nI/OエラーでFTPサーバーが爆発して業務が止まった時はカーネルの奥底まで潜り込む手伝いをした。半月ほど残業で潜り込み、その不可抗力でCUIアレルギーを克服してしまった事が思い出。\n無料のドリンクサーバー目当てと、忙しそうに見せる技術の習得のためにそこにいたはずだったのに。',
     timestamp: '2022-09 - 2022-11',
   },
   {
     title: 'SES会社の開発部門:',
-    content: 'Goでウェブアプリを叩き出していたのをぼんやりと覚えているが、不動産テック企業時代からの身体的負債によって体調を崩してオジャンになった。\nその後、CakePHPの巻物を解読する楽しい時間があった。\n肝臓の病気（エナドリ中毒）とプライベートのいざこざで脳細胞をいくつか犠牲にしながらも、品川という伝説のSES肉挽き場で炎上案件に抗う事を決意したが、金融の闇に飲み込まれて耐えられる筈がなかった。\nZ世代の鏡らしい良い思い出。',
+    content: 'Golangでウェブアプリを叩き出していたのをぼんやりと覚えているが、不動産テック企業時代からの身体的負債によって体調を崩してオジャンになった。\nその後、社内で勃発したアジャイルvsウォーターフォール宗教論争を無視しながらCakePHPの巻物を解読する楽しい時間があった。\n肝臓の病気（エナドリ中毒）とプライベートのいざこざで脳細胞をいくつか犠牲にしながらも、品川という伝説のSES肉挽き場で炎上案件に抗う事を決意したが、金融の闇に飲み込まれて耐えられるはずがなかった。\nZ世代の鏡らしい良い思い出。',
     timestamp: '2024-04 - 2024-12',
   },
   {
@@ -104,7 +103,7 @@ const activitiesJa = [
   },
   {
     title: 'とある会社のシステム部門:',
-    content: '現在の仕事は、プロダクション運用と新規開発がメイン。\nモジュラーモノリスという名のキメラが対戦相手。\n普段はモニターに向かって難しい顔をしたり、ぶつぶつ独り言を言いながらウロウロしたり、モンスターエナジーに支えられながら時々コードをつついたりしている。\n華やかな人生に見えるが、実態は泥沼系フルスタックエンジニア。',
+    content: '現在の仕事は、プロダクション運用と新規開発。\nモジュラーモノリスという名のキメラが対戦相手。\n普段はモニターに向かって難しい顔をしたり、ぶつぶつ独り言を言いながらウロウロしたり、モンスターエナジーに支えられながら時々コードをつついたりしている。\n華やかな人生に見えるが、実態は泥沼系フルスタックエンジニア兼パソコンのお医者さん。私はペーパーレス人間なので、プリンターの不具合について聞かれても「プリンター？何それ？」としか答えられない。',
     timestamp: '2025-1 - 現在',
   },
 ]
