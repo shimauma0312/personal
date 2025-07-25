@@ -41,32 +41,32 @@ const activitiesEn = [
   },
   {
     title: 'HAL',
-    content: 'HAL: where I absorbed network and coding fundamentals, probably through sheer willpower. Tinkered with making sound waves look cool (audio spectral analysis), taught computers to play peek-a-boo (machine learning for image recognition), and haphazardly assembled some web apps with Spring, Laravel, and C#.Net, mostly because I could. Entered a few coding contests, mostly for the snacks. My win rate was impressively zero. But hey, I showed up!',
+    content: `A place where I probably absorbed the basics of networking and coding through sheer force of will. I dabbled in audio spectral analysis, played around with machine learning for image recognition, and threw together web apps with whatever tech was lying around. Entered a few coding contests and hackathons like U-22, mostly for the snacks. My win rate? A flawless zero. But hey, at least I was consistent.`,
     timestamp: '2020-04 - 2024-03',
   },
   {
     title: 'Real Estate Tech Company, Development Division',
-    content: 'Pretty sure I signed up to be a debugger here, but somehow ended up in epic battles with Java batch jobs (mostly losing) and carefully navigating a minefield of legacy PHP, trying not to be the one who broke it all. It was, technically speaking, employment. My key performance indicator was Monster Energy consumption, which, fun fact, led to a delightful liver ailment.',
+    content: `Joined a giant IT company in the real estate industry as a telephone staff-slash-debugger (at least, that's what the contract said). But for some reason, my actual job was epic battles with Java batch jobs (mostly losing), and tiptoeing through a minefield of legacy PHP, trying not to trigger a monolithic conflict disaster. My nickname in the office was "the fairy who only appears at night." By day, I was a student; by night, an engineer, which led to chronic sleep deprivation. This, by the way, was the negative event that made me tear up my new grad card. My main KPI was Monster Energy consumption, which, as a fun aside, led to a lovely liver disease.`,
     timestamp: '2021-09 - 2024-03',
   },
   {
-    title: 'Major IT Services Company (Internship)',
-    content: 'Internship saga: conjured an HR system from the ether using C#.NET and SQLServer. Then they made me *talk* about it. In front of *people*. The audacity. Rumor has it they actually deployed it, which is frankly terrifying. I was mainly there for the free coffee and perfecting the art of looking busy.',
+    title: 'Major SIer ERP Division (Internship)',
+    content: `Sold my soul to Microsoft and conjured an HR system out of the void. Then, shamelessly, I was made to present the release in front of a crowd. It was my first time touching .NET, and I almost fell in love with Microsoft. Rumor has it they actually deployed what I made, which is, frankly, reckless. Who's going to maintain a jungle built by an intern? When FTP exploded with I/O errors and stopped business, I spent about a week diving into the kernel to help out, but honestly, that's not an intern's job. I was mostly there for the free drink server and to master the art of looking busy.`,
     timestamp: '2022-09 - 2022-11',
   },
   {
     title: 'SES Company, Development Department:',
-    content: 'Ah, the SES epoch. Vaguely recall hammering out some web apps with Go. Then there was that fun time deciphering ancient CakePHP scrolls – "reverse-engineering," they called it. Pretty sure I sacrificed a few brain cells in those trenches and barely escaped the legendary SES meat grinder. Good times? Debatable.',
+    content: `I vaguely remember hammering out some web apps in Go, but thanks to the physical debt I racked up at the real estate tech company, my health tanked and the gig fizzled out. After that, I had the "pleasure" of deciphering ancient CakePHP scrolls. Sacrificed a few brain cells to liver disease (energy drink addiction) and personal drama, but still decided to fight the legendary SES meat grinder in Shinagawa, only to be swallowed by the financial darkness. A true Gen Z memory, apparently.`,
     timestamp: '2024-04 - 2024-12',
   },
   {
-    title: 'Joined a Certain Mysterious Tech Community:',
-    content: 'Became part of a shadowy cabal of engineers in May 2024. Our agenda? Delving into AI, attempting to build our own (hopefully not too sentient) LLMs, swapping war stories about the latest web tech and those ever-so-stable core systems, and occasionally making things go "boom" with embedded systems and soldering irons. So far, property damage has been minimal.',
+    title: 'Tech Community:',
+    content: `Became a member of an engineer collective. Exploring machine learning, building local LLMs, sharing the latest web tech and war stories, and occasionally setting things on fire with embedded systems and soldering irons. So far, property damage has been kept to a minimum.`,
     timestamp: '2024-05 - Present',
   },
   {
-    title: 'Disaster Prevention Company, Systems Department:',
-    content: 'My current soul-crushing gig involves a lot of screen-gazing, mostly trying to get Nuxt3, Laravel, and SQLServer to behave for our in-house systems. And soon, a large-scale destructive war, also known as the "core system replacement," is scheduled to unfold. You can usually find me making difficult faces at my monitor, muttering to myself while pacing, or fueled by Monster Energy, occasionally prodding some code. It\'s a glamorous life.',
+    title: 'A Certain Company, Systems Department:',
+    content: `My current job mainly involves production operations and new development. My main opponent is a so-called "modular monolith" (read: a chimera). Most days, you can find me making difficult faces at my monitor, muttering to myself while pacing around, and occasionally poking at code while being propped up by Monster Energy. It may look glamorous, but in reality, I'm a full-stack engineer wading through the mud.`,
     timestamp: '2025-1 - Present',
   },
 ]
@@ -79,32 +79,32 @@ const activitiesJa = [
   },
   {
     title: 'HAL',
-    content: 'おそらく純粋な意志力でネットワークとコーディングの基礎を吸収した場所。\n音声スペクトル解析とか、画像認識の機械学習とか、Spring、Laravel、C#.Netでウェブアプリをでたらめに組み立てたりした。\nU-22などのいくつかのコーディングコンテスト・ハッカソンに参加したが、主にお菓子目当て。勝率は見事にゼロだった。',
+    content: 'おそらく純粋な意志力でネットワークとコーディングの基礎を吸収した場所。\n音声スペクトル解析とか、画像認識の機械学習とか、ウェブアプリをでたらめに組み立てたりした。\nU-22などのいくつかのコーディングコンテスト・ハッカソンに参加したが、主にお菓子目当て。勝率は見事にゼロだった。',
     timestamp: '2020-04 - 2024-03',
   },
   {
-    title: '不動産テックな会社の開発部門',
-    content: '不動産業界では知らない人はいないぐらいの大きなIT企業に、テレフォンスタッフ兼デバッガーとして契約した。だが、なぜかJavaバッチジョブとの壮絶な戦い（大体負け）と、レガシーPHPの地雷原を慎重に歩き回り破壊者にならぬように注意する事が業務になった。\n社内での通り名は「夜にだけ出現する妖精さん」。\n昼は学生・夜はエンジニアになり、慢性的な睡眠不足に陥った。これが後に新卒カードを破り捨てるネガティブイベントのきっかけとなった。\n私の主要業績指標はモンスターエナジーの消費量で、これが楽しい楽しい肝臓の病気につながったのは余談だ。',
+    title: '不動産テックな大手会社の開発部門',
+    content: '不動産業界では知らない人はいないぐらいの大きなIT企業に、テレフォンスタッフ兼デバッガーとして契約した。だが、なぜかJavaバッチジョブとの壮絶な戦い（大体負け）と、モノリスなせいで起きまくるコンフリクトを殴り飛ばしながらレガシーPHPの地雷原を慎重に歩き回る事が業務になった。\n社内での通り名は「夜にだけ出現する妖精さん」。\n昼は学生・夜はエンジニアになり、慢性的な睡眠不足に陥った。これが後に新卒カードを破り捨てるネガティブイベントのきっかけとなった。\n私の主要業績指標はモンスターエナジーの消費量で、これが楽しい楽しい肝臓の病気につながったのは余談だ。',
     timestamp: '2021-09 - 2024-03',
   },
   {
     title: '大手SIerのERP事業部（インターンシップ）',
-    content: 'C#.NETとSQLServerを使って虚無からHRシステムを錬成した。そして図々しくもリリースプレゼンまでさせられた。\n噂によると実際に導入されたらしいが、それは率直に言って無謀。一体誰がインターンの作ったジャングルを保守するのか。\n無料のドリンクサーバー目当てと、忙しそうに見せる技術の習得のためにそこにいたはずなのに。',
+    content: 'Microsoft製品に魂を売り、虚無からHRシステムを錬成した。そして図々しくも大勢の前でリリースプレゼンまでさせられた。初めて.Netを触ったが、危うくMicrosoftに恋をすることろだった。\n噂によると実際に導入されたらしいが、それは率直に言って無謀。一体誰がインターンの作ったジャングルを保守するのか。\nFTPがI/Oエラーで爆発して業務が止まった時はカーネルの奥底まで潜り込む手伝いを一週間ほどしたが、あれはインターンの仕事ではないと思う。\n無料のドリンクサーバー目当てと、忙しそうに見せる技術の習得のためにそこにいたはずなのに。',
     timestamp: '2022-09 - 2022-11',
   },
   {
     title: 'SES会社の開発部門:',
-    content: 'Goでウェブアプリを叩き出していたのをぼんやりと覚えているが、不動産テック企業時代からの身体的負債によって体調を崩してオジャンになった。\nその後、CakePHPの巻物を解読する楽しい時間があった。\n肝臓の病気（エナドリ中毒）と塹壕で脳細胞をいくつか犠牲にし、品川という伝説のSES肉挽き場からかろうじて逃げ出した。\nZ世代の鏡らしい良い思い出。',
+    content: 'Goでウェブアプリを叩き出していたのをぼんやりと覚えているが、不動産テック企業時代からの身体的負債によって体調を崩してオジャンになった。\nその後、CakePHPの巻物を解読する楽しい時間があった。\n肝臓の病気（エナドリ中毒）とプライベートのいざこざで脳細胞をいくつか犠牲にしながらも、品川という伝説のSES肉挽き場で炎上案件に抗う事を決意したが、金融の闇に飲み込まれて耐えられる筈がなかった。\nZ世代の鏡らしい良い思い出。',
     timestamp: '2024-04 - 2024-12',
   },
   {
     title: '技術コミュニティ:',
-    content: 'エンジニア集団の一員になる。\n機械学習の探求、ローカルLLMの構築、最新のウェブ技術や戦争体験談の共有、そして時々組み込みシステムやハンダごてで何かを爆発させること。\n今のところ、物的損害は最小限に抑えられている。',
+    content: 'エンジニア集団の一員になる。\n機械学習の探求、ローカルLLMの構築、最新のウェブ技術や戦争体験談の共有、そして時々組み込みシステムやハンダごてで何かを燃焼させている。\n今のところ、物的損害は最小限に抑えられている。',
     timestamp: '2024-05 - 現在',
   },
   {
-    title: '防災関連会社のシステム部門:',
-    content: '現在の仕事は、主に画面とのにらめっこ。\nNuxt3、Laravel、SQLServerが対戦相手。そして近々、基幹システムリプレイスという名の大規模破壊戦争が始まる予定。\n普段はモニターに向かって難しい顔をしたり、ぶつぶつ独り言を言いながらウロウロしたり、モンスターエナジーに支えられながら時々コードをつついたりしている。\n華やかな人生。',
+    title: 'とある会社のシステム部門:',
+    content: '現在の仕事は、プロダクション運用と新規開発がメイン。\nモジュラーモノリスという名のキメラが対戦相手。\n普段はモニターに向かって難しい顔をしたり、ぶつぶつ独り言を言いながらウロウロしたり、モンスターエナジーに支えられながら時々コードをつついたりしている。\n華やかな人生に見えるが、実態は泥沼系フルスタックエンジニア。',
     timestamp: '2025-1 - 現在',
   },
 ]
