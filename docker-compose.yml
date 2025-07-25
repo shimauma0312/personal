@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   app:
     build: .
@@ -16,8 +14,12 @@ services:
     stdin_open: true
     # Override the default command for now
     command: >
-      sh -c "echo 'Ubuntu-based development environment ready' &&
-             echo 'Node.js version:' && node --version &&
-             echo 'This demonstrates Ubuntu base image usage.' &&
-             echo 'To fully run the app, Node.js 18+ is required.' &&
-             tail -f /dev/null"
+      sh -c "
+      echo 'Ubuntu-based development environment ready' &&
+      echo 'Node.js version:' && node --version &&
+      echo 'npm version:' && npm --version &&
+      echo 'Installing dependencies...' &&
+      npm install &&
+      echo 'Starting development server...' &&
+      npm run dev
+      "
