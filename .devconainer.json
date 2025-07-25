@@ -1,13 +1,14 @@
 {
-  "name": "Node.js & TypeScript",
-  "image": "mcr.microsoft.com/devcontainers/typescript-node:18-bullseye",
+  "name": "Ubuntu Development Environment",
+  "dockerFile": "Dockerfile",
+  "workspaceFolder": "/workspace",
   "hostRequirements": {
     "cpus": 2
   },
   "waitFor": "onCreateCommand",
-  "updateContentCommand": "npm install && npm run build",
-  "postCreateCommand": "",
-  "postAttachCommand": "npm run dev",
+  "updateContentCommand": "echo 'Ubuntu environment ready'",
+  "postCreateCommand": "echo 'To run the Nuxt.js app, install Node.js 18+ first'",
+  "postAttachCommand": "echo 'Development environment started with Ubuntu base'",
   "portsAttributes": {
     "3000": {
       "label": "Application",
@@ -17,10 +18,14 @@
   "forwardPorts": [3000],
   "customizations": {
     "codespaces": {
-      "openFiles": ["app.vue"]
+      "openFiles": ["README.md", "Dockerfile"]
     },
     "vscode": {
-      "extensions": ["Vue.volar", "Vue.vscode-typescript-vue-plugin"]
+      "extensions": [
+        "Vue.volar", 
+        "Vue.vscode-typescript-vue-plugin",
+        "ms-vscode.vscode-docker"
+      ]
     }
   }
 }
